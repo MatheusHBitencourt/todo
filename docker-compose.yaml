@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   app:
     build:
@@ -21,7 +19,10 @@ services:
     ports:
       - "3000:3000"
       - "9229:9229"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
 networks:
   main:
     external: true
+
