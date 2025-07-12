@@ -1,0 +1,16 @@
+//// ------------------------------------------------------
+//// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+//// ------------------------------------------------------
+
+Table card {
+  id String [pk]
+  title String [unique, not null]
+  text String [not null]
+  stage Stage [not null, default: 'TODO']
+}
+
+Enum Stage {
+  TODO
+  DOING
+  DONE
+}

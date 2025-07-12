@@ -13,9 +13,22 @@ generator dbml {
   provider = "prisma-dbml-generator"
 }
 
-
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
+model Card {
+  id    String @id @default(uuid())
+  title String @map("title") @db.VarChar(30) @unique
+  text  String @map("text") @db.Text
+  stage Stage  @default(TODO) @map("stage")
+
+  @@map("card")
+}
+
+enum Stage {
+  TODO
+  DOING
+  DONE
+}
